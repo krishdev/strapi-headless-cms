@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "category",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "posts": {
+      "via": "categories",
+      "collection": "post",
+      "dominant": true
+    },
+    "colorCode": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^#([0-9a-f]{3}|[0-9a-f]{6})$"
+    },
+    "bannerImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "order": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "regex": "([-a-zA-Z]+)"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "json",
+      "required": true
+    },
+    "keywords": {
+      "type": "string",
+      "required": true
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true
+    },
+    "metaTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
